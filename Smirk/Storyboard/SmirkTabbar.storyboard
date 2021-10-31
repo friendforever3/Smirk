@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZRg-Vd-fHc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Smirk TabbarVC-->
+        <scene sceneID="L1V-QR-Vqb">
+            <objects>
+                <tabBarController storyboardIdentifier="SmirkTabbarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZRg-Vd-fHc" customClass="SmirkTabbarVC" customModule="Smirk" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cVW-d0-EmK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="sliderBetwn"/>
+                        <color key="tintColor" name="sliderBetwn"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="HnT-y9-LyL" kind="relationship" relationship="viewControllers" id="cDn-qd-Ib2"/>
+                        <segue destination="WS1-yD-9Ec" kind="relationship" relationship="viewControllers" id="9WK-J4-JHA"/>
+                        <segue destination="odf-Ny-Khg" kind="relationship" relationship="viewControllers" id="2df-Gh-9He"/>
+                        <segue destination="wly-kO-YlS" kind="relationship" relationship="viewControllers" id="EIJ-48-9dD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bed-af-BRG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-591" y="66"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="avj-D7-wMV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="HnT-y9-LyL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home_inactive" selectedImage="home" id="rpK-3c-lnO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E8A-QO-2x2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="onq-c0-cth" kind="relationship" relationship="rootViewController" id="5ck-BQ-ufN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Aw-dQ-lGb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298.55072463768118" y="-237.05357142857142"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="vZJ-ml-tVR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="onq-c0-cth" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Vfg-A7-XqQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxE-wf-hYo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="-303"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xmf-UV-AdI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="WS1-yD-9Ec" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="chat_inactive" selectedImage="chat" id="d9n-xJ-aGa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pb9-Oe-WKQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J49-JF-F5U" kind="relationship" relationship="rootViewController" id="Bn9-KP-257"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYO-ba-EJp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208.6956521739132" y="445.98214285714283"/>
+        </scene>
+        <!--Message-->
+        <scene sceneID="cXh-Ga-Uob">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Message" id="J49-JF-F5U" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IQW-lp-gXm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ore-QX-7QK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936" y="332"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tyh-RP-vRO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="odf-Ny-Khg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="notifications_inactive" selectedImage="notifications" id="jha-Rw-APw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Il-2G-IZY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ehP-ww-UO7" kind="relationship" relationship="rootViewController" id="E8c-1W-HfC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3N-vf-tm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1189.8550724637682" y="1110.9375"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="02B-TK-rnI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notification" id="ehP-ww-UO7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XdK-7V-zaV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnx-D5-Ti8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869" y="1004"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bcC-bi-So0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="wly-kO-YlS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="settings_inactive" selectedImage="settings" id="Bky-nf-4kg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aal-Sq-exx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9yx-HH-iBI" kind="relationship" relationship="rootViewController" id="DyO-t2-2bg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fan-F6-dLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-730.43478260869574" y="884.59821428571422"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="n0S-5e-2mQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="9yx-HH-iBI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Zz9-xQ-8ju"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o49-FF-haz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123" y="738"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chat" width="28" height="28"/>
+        <image name="chat_inactive" width="28" height="28"/>
+        <image name="home" width="28" height="28"/>
+        <image name="home_inactive" width="28" height="28"/>
+        <image name="notifications" width="28" height="28"/>
+        <image name="notifications_inactive" width="28" height="28"/>
+        <image name="settings" width="28" height="28"/>
+        <image name="settings_inactive" width="28" height="28"/>
+        <namedColor name="sliderBetwn">
+            <color red="0.96078431372549022" green="0.15686274509803921" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

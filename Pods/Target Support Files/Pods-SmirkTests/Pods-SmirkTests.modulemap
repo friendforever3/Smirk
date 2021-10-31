@@ -1,0 +1,6 @@
+framework module Pods_SmirkTests {
+  umbrella header "Pods-SmirkTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
