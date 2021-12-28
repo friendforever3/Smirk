@@ -6,11 +6,18 @@ target 'Smirk' do
   use_frameworks!
 
   # Pods for Smirk
-  #pod 'Shuffle-iOS'
-#pod 'CountryPickerSwift'
-#pod 'IQKeyboardManager'
-#pod 'RangeSeekSlider'
-#pod 'OpalImagePicker'
+  
+pod 'Shuffle-iOS'
+pod 'CountryPickerSwift'
+pod 'IQKeyboardManager'
+pod 'RangeSeekSlider'
+pod 'OpalImagePicker'
+pod 'Alamofire'
+pod 'NVActivityIndicatorView' , '~> 4.7.0'
+pod 'Kingfisher'
+pod 'MBProgressHUD'
+
+
   target 'SmirkTests' do
     inherit! :search_paths
     # Pods for testing

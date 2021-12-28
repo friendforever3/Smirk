@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
 class AgeDistancePrefncVC: UIViewController {
 
@@ -13,13 +14,28 @@ class AgeDistancePrefncVC: UIViewController {
     @IBOutlet weak var btnHundred: ButtonCustom!
     @IBOutlet weak var btnFifty: ButtonCustom!
     @IBOutlet weak var btnTen: ButtonCustom!
+    @IBOutlet weak var rangeSlider: RangeSeekSlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        rangeSlider.delegate = self
+        
+        RegisterModel.shared.age_preference_to = "\(rangeSlider.selectedMaxValue)"
+        RegisterModel.shared.age_preference_from = "\(rangeSlider.selectedMinValue)"
     }
     
     @IBAction func btnNextAction(_ sender: Any) {
+        if RegisterModel.shared.max_distance == ""{
+            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kDistance, control: ["OK"], topController: self)
+        }else{
+            pushToEthicity()
+        }
+        
+    }
+    
+    func pushToEthicity(){
         let vc = EthnicityVC.getVC(.Main)
         self.push(vc)
     }
@@ -27,19 +43,22 @@ class AgeDistancePrefncVC: UIViewController {
     @IBAction func btnBackAction(_ sender: Any) {
         self.popVc()
     }
-   
     
     @IBAction func btnTenAction(_ sender: Any) {
         selectedVw(selectedBtn: btnTen)
+        RegisterModel.shared.max_distance = Distance.Ten.rawValue
     }
     @IBAction func btnFiftyAction(_ sender: Any) {
         selectedVw(selectedBtn: btnFifty)
+        RegisterModel.shared.max_distance = Distance.Fifty.rawValue
     }
     @IBAction func btnHundredAction(_ sender: Any) {
         selectedVw(selectedBtn: btnHundred)
+        RegisterModel.shared.max_distance = Distance.Hundred.rawValue
     }
     @IBAction func btnAnyAction(_ sender: Any) {
         selectedVw(selectedBtn: btnAny)
+        RegisterModel.shared.max_distance = Distance.any.rawValue
     }
     
     func selectedVw(selectedBtn:ButtonCustom){
@@ -59,4 +78,25 @@ class AgeDistancePrefncVC: UIViewController {
         
     }
     
+}
+
+// MARK: - RangeSeekSliderDelegate
+extension AgeDistancePrefncVC: RangeSeekSliderDelegate {
+
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        if slider === rangeSlider {
+            print("Standard slider updated. Min Value: \(minValue) Max Value: \(maxValue)")
+            RegisterModel.shared.age_preference_to = "\(maxValue)"
+            RegisterModel.shared.age_preference_from = "\(minValue)"
+        }
+    }
+
+    func didStartTouches(in slider: RangeSeekSlider) {
+        print("did start touches")
+        
+    }
+
+    func didEndTouches(in slider: RangeSeekSlider) {
+        print("did end touches")
+    }
 }

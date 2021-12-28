@@ -19,6 +19,14 @@ class GenderPrefernceVC: UIViewController {
     }
     
     @IBAction func btnNextAction(_ sender: Any) {
+        if RegisterModel.shared.matching_id == ""{
+            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kMatchWith, control: ["OK"], topController: self)
+        }else{
+            pushAgeDist()
+        }
+    }
+    
+    func pushAgeDist(){
         let vc = AgeDistancePrefncVC.getVC(.Main)
         self.push(vc)
     }
@@ -29,20 +37,22 @@ class GenderPrefernceVC: UIViewController {
    
     @IBAction func btnMaleAction(_ sender: Any) {
         selectedVw(selectedBtn: btnMale)
+        RegisterModel.shared.matching_id = MatchWith.Male.rawValue
     }
     
     @IBAction func btnFemaleAction(_ sender: Any) {
         selectedVw(selectedBtn: btnFemale)
+        RegisterModel.shared.matching_id = MatchWith.Female.rawValue
     }
     
     @IBAction func btnNonBinaryAction(_ sender: Any) {
         selectedVw(selectedBtn: btnNonBinary)
+        RegisterModel.shared.matching_id = MatchWith.NonBinary.rawValue
     }
     
     func selectedVw(selectedBtn:ButtonCustom){
         
         let btns = [btnMale,btnFemale,btnNonBinary]
-
         for btn in btns{
             if btn == selectedBtn{
                 btn?.backgroundColor = .white
@@ -53,7 +63,6 @@ class GenderPrefernceVC: UIViewController {
                 btn?.setTitleColor(.white, for: .normal)
             }
         }
-        
     }
     
     

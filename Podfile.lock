@@ -1,3 +1,50 @@
-PODFILE CHECKSUM: 2911c1d46367e8d58f997ea41b5fc10f0fc9f84d
+PODS:
+  - Alamofire (5.4.3)
+  - CountryPickerSwift (1.8.2)
+  - IQKeyboardManager (6.5.6)
+  - Kingfisher (6.3.1)
+  - MBProgressHUD (1.2.0)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
+  - OpalImagePicker (3.0.0)
+  - RangeSeekSlider (1.8.0)
+  - Shuffle-iOS (0.5.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - CountryPickerSwift
+  - IQKeyboardManager
+  - Kingfisher
+  - MBProgressHUD
+  - NVActivityIndicatorView (~> 4.7.0)
+  - OpalImagePicker
+  - RangeSeekSlider
+  - Shuffle-iOS
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CountryPickerSwift
+    - IQKeyboardManager
+    - Kingfisher
+    - MBProgressHUD
+    - NVActivityIndicatorView
+    - OpalImagePicker
+    - RangeSeekSlider
+    - Shuffle-iOS
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  CountryPickerSwift: b2cd8b391a0222bd9a97d09ea30426303adac810
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  OpalImagePicker: 38e772dd93a54431fc516b33e1f337c50f745834
+  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
+  Shuffle-iOS: ff33658fb1e5eebd6a4724c156473e63754be9cb
+
+PODFILE CHECKSUM: d649c19946d2ef39bab78e87ec2d83cec001790a
 
 COCOAPODS: 1.11.2

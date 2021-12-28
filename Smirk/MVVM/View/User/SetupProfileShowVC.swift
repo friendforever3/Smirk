@@ -9,6 +9,7 @@ import UIKit
 
 class SetupProfileShowVC: UIViewController {
     
+    @IBOutlet weak var tfShow: TextFieldCustom!
     @IBOutlet weak var tblVw: UITableView!
     
     override func viewDidLoad() {
@@ -33,16 +34,22 @@ class SetupProfileShowVC: UIViewController {
 extension SetupProfileShowVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return UserVM.shared.getShowsListArrayCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShowTblCell
+        
+        cell.lblShowName.text = UserVM.shared.getShowsListCell(indexPath: indexPath).title
+        UtilityManager.shared.setImage(image: cell.imgShow, urlString: UserVM.shared.getShowsListCell(indexPath: indexPath).Icon)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function)
+        tfShow.text = UserVM.shared.getShowsListCell(indexPath: indexPath).title + " "
+        RegisterModel.shared.shows.append(Int(UserVM.shared.getShowsListCell(indexPath: indexPath).id) ?? 0)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

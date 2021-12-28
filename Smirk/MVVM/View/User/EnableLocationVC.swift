@@ -16,13 +16,33 @@ class EnableLocationVC: UIViewController {
     }
     
     @IBAction func btnEnableAction(_ sender: Any) {
-        let vc = SmirkTabbarVC.getVC(.SmirkTabbar)
-        self.push(vc)
+        LocationManager.shared.initialiseLoc()
     }
     
     @IBAction func btnSkipAction(_ sender: Any) {
+        registerUser()
+    }
+    
+    func pushToHome(){
         let vc = SmirkTabbarVC.getVC(.SmirkTabbar)
         self.push(vc)
     }
+}
+
+//MARK: API
+extension EnableLocationVC{
     
+    func registerUser(){
+        
+        UserVM.shared.registerUser { [weak self] (success,msg) in
+            
+            if success{
+                self?.pushToHome()
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
+            
+        }
+        
+    }
 }

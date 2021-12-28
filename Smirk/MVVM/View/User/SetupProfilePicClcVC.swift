@@ -22,6 +22,17 @@ class SetupProfilePicClcVC: UIViewController {
     }
     
     @IBAction func btnNextAction(_ sender: Any) {
+        if selectedPhots.count == 0{
+            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kUploadPic, control: ["OK"], topController: self)
+        }else if selectedPhots.count < 2{
+            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kUploadMinPic, control: ["OK"], topController: self)
+        }else{
+            pushToProfileBio()
+        }
+        
+    }
+    
+    func pushToProfileBio(){
         let vc = SetupProfileBioVC.getVC(.Main)
         self.push(vc)
     }
@@ -81,6 +92,12 @@ extension SetupProfilePicClcVC: OpalImagePickerControllerDelegate {
         //Save Images, update UI
        
         selectedPhots = UtilityManager.shared.getAssetThumbnail(assets: assets)
+        
+        for img in selectedPhots{
+            RegisterModel.shared.images.append(img.pngData() ?? Data())
+        }
+        
+        
         clcVw.reloadData()
         print(assets.count)
         //Dismiss Controller

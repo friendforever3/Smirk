@@ -15,6 +15,7 @@ class OTPVC: UIViewController {
     @IBOutlet weak var tfForth: UITextField!
     @IBOutlet weak var tfFifth: UITextField!
     
+    var mobile : String = ""
     var otpString = String()
     
     override func viewDidLoad() {
@@ -25,8 +26,18 @@ class OTPVC: UIViewController {
     }
     
     @IBAction func btnSubmitAction(_ sender: Any) {
-        let vc = LaughVC.getVC(.Main)
-        self.push(vc)
+        
+        if tfone.text?.isEmptyOrWhitespace() ??  false || tfTwo.text?.isEmptyOrWhitespace() ?? false || tfThird.text?.isEmptyOrWhitespace() ?? false || tfForth.text?.isEmptyOrWhitespace() ?? false{
+            
+            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kOTP, control: ["OK"], topController: self)
+            
+        }else{
+            RegisterModel.shared.mobile = mobile
+            self.submitOTP()
+        }
+        
+        
+       // self.pushToLaugh()
     }
     
     
@@ -66,7 +77,7 @@ extension OTPVC: UITextFieldDelegate{
             case tfThird:
                 tfForth.becomeFirstResponder()
             case tfForth:
-                tfFifth.becomeFirstResponder()
+                tfFifth.resignFirstResponder()
             case tfFifth:
                 tfFifth.resignFirstResponder()
             
@@ -95,6 +106,37 @@ extension OTPVC: UITextFieldDelegate{
         }else{
             
         }
+    }
+    
+}
+
+//MARK: API
+extension OTPVC{
+    
+    func submitOTP(){
+        let otp = (tfone.text ?? "") + (tfTwo.text ?? "") + (tfThird.text ?? "") + (tfForth.text ?? "")
+        UserVM.shared.submitOtpApi(mobileNo: mobile, otp: otp) { [weak self] (succcess,msg) in
+            if succcess{
+                if UtilityManager.shared.userDecodedDetail().is_registered == 0{
+                    self?.pushToLaugh()
+                }else{
+                    self?.pushToHome()
+                }
+                
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
+        }
+    }
+    
+    func pushToLaugh(){
+        let vc = LaughVC.getVC(.Main)
+        self.push(vc)
+    }
+    
+    func pushToHome(){
+        let vc = SmirkTabbarVC.getVC(.SmirkTabbar)
+        self.push(vc)
     }
     
 }

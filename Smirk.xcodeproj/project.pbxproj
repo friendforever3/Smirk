@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26702031277383220058A635 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2670202E277383220058A635 /* APIConstant.swift */; };
+		26702032277383220058A635 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2670202F277383220058A635 /* APIHandler.swift */; };
+		26702033277383220058A635 /* ProtocolMangr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26702030277383220058A635 /* ProtocolMangr.swift */; };
+		26702035277383F20058A635 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26702034277383F20058A635 /* Indicator.swift */; };
+		26702037277384020058A635 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26702036277384020058A635 /* ImagePicker.swift */; };
+		2670203927738C650058A635 /* UserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2670203827738C650058A635 /* UserVM.swift */; };
+		2670203B277399E80058A635 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2670203A277399E70058A635 /* RegisterModel.swift */; };
+		2670203D2773A2E20058A635 /* EthnicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2670203C2773A2E20058A635 /* EthnicModel.swift */; };
+		26775ABD27773C0F00E8FBE8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26775ABC27773C0F00E8FBE8 /* LocationManager.swift */; };
+		26775ABF27783BC600E8FBE8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26775ABE27783BC600E8FBE8 /* UserModel.swift */; };
+		26775AC2277843AF00E8FBE8 /* ShowTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26775AC1277843AF00E8FBE8 /* ShowTblCell.swift */; };
+		26775AC42778C99500E8FBE8 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26775AC32778C99500E8FBE8 /* HomeVM.swift */; };
+		26775AC62778CE6800E8FBE8 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26775AC52778CE6800E8FBE8 /* HomeModel.swift */; };
 		30D8124139A6AD1711366454 /* Pods_Smirk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E188368812999076EC837A6 /* Pods_Smirk.framework */; };
 		43FFD82CBAA574737D6D5A19 /* Pods_SmirkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE85A7F0594F8C58540A23B2 /* Pods_SmirkTests.framework */; };
 		6C0A4E48272EDF6F004A936B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0A4E47272EDF6F004A936B /* LaunchScreen.storyboard */; };
@@ -106,6 +119,19 @@
 /* Begin PBXFileReference section */
 		0E63366D42352C8C8294AA42 /* Pods_Smirk_SmirkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smirk_SmirkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E1B8E24CB86C4FF394CF30F /* Pods-SmirkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmirkTests.debug.xcconfig"; path = "Target Support Files/Pods-SmirkTests/Pods-SmirkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2670202E277383220058A635 /* APIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		2670202F277383220058A635 /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		26702030277383220058A635 /* ProtocolMangr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolMangr.swift; sourceTree = "<group>"; };
+		26702034277383F20058A635 /* Indicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		26702036277384020058A635 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2670203827738C650058A635 /* UserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVM.swift; sourceTree = "<group>"; };
+		2670203A277399E70058A635 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		2670203C2773A2E20058A635 /* EthnicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthnicModel.swift; sourceTree = "<group>"; };
+		26775ABC27773C0F00E8FBE8 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		26775ABE27783BC600E8FBE8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		26775AC1277843AF00E8FBE8 /* ShowTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTblCell.swift; sourceTree = "<group>"; };
+		26775AC32778C99500E8FBE8 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		26775AC52778CE6800E8FBE8 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		2A638A84BD0F015D6867217E /* Pods-Smirk-SmirkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smirk-SmirkUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smirk-SmirkUITests/Pods-Smirk-SmirkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4FD220B1C0684EF1B4B4AA16 /* Pods-Smirk-SmirkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smirk-SmirkUITests.release.xcconfig"; path = "Target Support Files/Pods-Smirk-SmirkUITests/Pods-Smirk-SmirkUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6C0A4E45272EDF24004A936B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -233,6 +259,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2670202D2773830E0058A635 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2670202F277383220058A635 /* APIHandler.swift */,
+				2670202E277383220058A635 /* APIConstant.swift */,
+				26702030277383220058A635 /* ProtocolMangr.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		26775AC02778439000E8FBE8 /* TblCell */ = {
+			isa = PBXGroup;
+			children = (
+				26775AC1277843AF00E8FBE8 /* ShowTblCell.swift */,
+			);
+			path = TblCell;
+			sourceTree = "<group>";
+		};
 		6C975DE4272EDC24005B5A80 = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +305,7 @@
 				6C975DF0272EDC24005B5A80 /* AppDelegate.swift */,
 				6C975DF2272EDC24005B5A80 /* SceneDelegate.swift */,
 				6C975DF4272EDC24005B5A80 /* ViewController.swift */,
+				2670202D2773830E0058A635 /* Network */,
 				6C975E66272EDDAD005B5A80 /* MVVM */,
 				6C975E20272EDC46005B5A80 /* Storyboard */,
 				6C975E41272EDDA2005B5A80 /* Resources */,
@@ -310,6 +355,9 @@
 				6C975E34272EDD8C005B5A80 /* TinderCard */,
 				6C975E39272EDD8C005B5A80 /* UtilityManager.swift */,
 				6C975E3A272EDD8C005B5A80 /* Extension.swift */,
+				26702034277383F20058A635 /* Indicator.swift */,
+				26702036277384020058A635 /* ImagePicker.swift */,
+				26775ABC27773C0F00E8FBE8 /* LocationManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -353,9 +401,9 @@
 		6C975E66272EDDAD005B5A80 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				6C975E67272EDDAD005B5A80 /* ViewModel */,
 				6C975E68272EDDAD005B5A80 /* Model */,
 				6C975E69272EDDAD005B5A80 /* View */,
+				6C975E67272EDDAD005B5A80 /* ViewModel */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -363,6 +411,8 @@
 		6C975E67272EDDAD005B5A80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2670203827738C650058A635 /* UserVM.swift */,
+				26775AC32778C99500E8FBE8 /* HomeVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -370,6 +420,10 @@
 		6C975E68272EDDAD005B5A80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2670203A277399E70058A635 /* RegisterModel.swift */,
+				2670203C2773A2E20058A635 /* EthnicModel.swift */,
+				26775ABE27783BC600E8FBE8 /* UserModel.swift */,
+				26775AC52778CE6800E8FBE8 /* HomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,8 +475,8 @@
 		6C975E75272EDDAD005B5A80 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6C975E76272EDDAD005B5A80 /* MatchVC.swift */,
 				6C975E77272EDDAD005B5A80 /* HomeVC.swift */,
+				6C975E76272EDDAD005B5A80 /* MatchVC.swift */,
 				6C975E78272EDDAD005B5A80 /* CompaitbleVC.swift */,
 			);
 			path = Home;
@@ -456,18 +510,19 @@
 		6C975E80272EDDAD005B5A80 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				6C975E81272EDDAD005B5A80 /* OTPVC.swift */,
-				6C975E82272EDDAD005B5A80 /* GenderPrefernceVC.swift */,
-				6C975E83272EDDAD005B5A80 /* SetupProfileShowVC.swift */,
 				6C975E84272EDDAD005B5A80 /* LoginVC.swift */,
-				6C975E85272EDDAD005B5A80 /* SetupProfilePicClcVC.swift */,
+				6C975E81272EDDAD005B5A80 /* OTPVC.swift */,
+				6C975E8F272EDDAD005B5A80 /* LaughVC.swift */,
+				6C975E82272EDDAD005B5A80 /* GenderPrefernceVC.swift */,
 				6C975E86272EDDAD005B5A80 /* AgeDistancePrefncVC.swift */,
-				6C975E87272EDDAD005B5A80 /* ClcCell */,
 				6C975E8D272EDDAD005B5A80 /* EthnicityVC.swift */,
 				6C975E8E272EDDAD005B5A80 /* EthnicityPrefrncVC.swift */,
-				6C975E8F272EDDAD005B5A80 /* LaughVC.swift */,
-				6C975E90272EDDAD005B5A80 /* EnableLocationVC.swift */,
+				6C975E85272EDDAD005B5A80 /* SetupProfilePicClcVC.swift */,
 				6C975E91272EDDAD005B5A80 /* SetupProfileBioVC.swift */,
+				6C975E83272EDDAD005B5A80 /* SetupProfileShowVC.swift */,
+				6C975E90272EDDAD005B5A80 /* EnableLocationVC.swift */,
+				26775AC02778439000E8FBE8 /* TblCell */,
+				6C975E87272EDDAD005B5A80 /* ClcCell */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -529,6 +584,7 @@
 				6C975DE9272EDC24005B5A80 /* Sources */,
 				6C975DEA272EDC24005B5A80 /* Frameworks */,
 				6C975DEB272EDC24005B5A80 /* Resources */,
+				3D2FF6458FD6A10FF82AA4AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -566,6 +622,7 @@
 				6C975E0A272EDC26005B5A80 /* Sources */,
 				6C975E0B272EDC26005B5A80 /* Frameworks */,
 				6C975E0C272EDC26005B5A80 /* Resources */,
+				D1C6BECB428E351E6AB4A295 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -670,6 +727,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3D2FF6458FD6A10FF82AA4AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smirk/Pods-Smirk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smirk/Pods-Smirk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smirk/Pods-Smirk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8633CF0A19587DB398EF418A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -736,6 +810,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D1C6BECB428E351E6AB4A295 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smirk-SmirkUITests/Pods-Smirk-SmirkUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smirk-SmirkUITests/Pods-Smirk-SmirkUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smirk-SmirkUITests/Pods-Smirk-SmirkUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -746,10 +837,14 @@
 				6C975E93272EDDAD005B5A80 /* SettingsVC.swift in Sources */,
 				6C975E96272EDDAD005B5A80 /* HelpVC.swift in Sources */,
 				6C975EA4272EDDAD005B5A80 /* LoginVC.swift in Sources */,
+				26702037277384020058A635 /* ImagePicker.swift in Sources */,
+				26702032277383220058A635 /* APIHandler.swift in Sources */,
 				6C975EA2272EDDAD005B5A80 /* GenderPrefernceVC.swift in Sources */,
 				6C975E9A272EDDAD005B5A80 /* MatchVC.swift in Sources */,
 				6C975EAB272EDDAD005B5A80 /* EthnicityVC.swift in Sources */,
 				6C975EA5272EDDAD005B5A80 /* SetupProfilePicClcVC.swift in Sources */,
+				2670203927738C650058A635 /* UserVM.swift in Sources */,
+				26775AC62778CE6800E8FBE8 /* HomeModel.swift in Sources */,
 				6C975EA7272EDDAD005B5A80 /* MICollectionViewBubbleLayout.swift in Sources */,
 				6C975EB9272EDDB6005B5A80 /* ViewCustom.swift in Sources */,
 				6C975EBA272EDDB6005B5A80 /* LabelCustom.swift in Sources */,
@@ -772,21 +867,30 @@
 				6C975EAF272EDDAD005B5A80 /* SetupProfileBioVC.swift in Sources */,
 				6C975E9F272EDDAD005B5A80 /* ChatVC.swift in Sources */,
 				6C975EAC272EDDAD005B5A80 /* EthnicityPrefrncVC.swift in Sources */,
+				2670203D2773A2E20058A635 /* EthnicModel.swift in Sources */,
 				6C975EAD272EDDAD005B5A80 /* LaughVC.swift in Sources */,
+				26775AC2277843AF00E8FBE8 /* ShowTblCell.swift in Sources */,
 				6C975E3E272EDD8C005B5A80 /* TinderCardOverlay.swift in Sources */,
 				6C975E3B272EDD8C005B5A80 /* TinderCardContentView.swift in Sources */,
 				6C975EA1272EDDAD005B5A80 /* OTPVC.swift in Sources */,
 				6C975EAE272EDDAD005B5A80 /* EnableLocationVC.swift in Sources */,
 				6C975E9D272EDDAD005B5A80 /* NotificationVC.swift in Sources */,
+				26702031277383220058A635 /* APIConstant.swift in Sources */,
+				26702033277383220058A635 /* ProtocolMangr.swift in Sources */,
 				6C975DF5272EDC24005B5A80 /* ViewController.swift in Sources */,
 				6C975E94272EDDAD005B5A80 /* ProfileInfoVC.swift in Sources */,
 				6C975DF1272EDC24005B5A80 /* AppDelegate.swift in Sources */,
 				6C975EA3272EDDAD005B5A80 /* SetupProfileShowVC.swift in Sources */,
+				2670203B277399E80058A635 /* RegisterModel.swift in Sources */,
 				6C975EA9272EDDAD005B5A80 /* EthicityClcCell.swift in Sources */,
+				26775ABD27773C0F00E8FBE8 /* LocationManager.swift in Sources */,
+				26702035277383F20058A635 /* Indicator.swift in Sources */,
 				6C975E3F272EDD8C005B5A80 /* UtilityManager.swift in Sources */,
+				26775ABF27783BC600E8FBE8 /* UserModel.swift in Sources */,
 				6C975DF3272EDC24005B5A80 /* SceneDelegate.swift in Sources */,
 				6C975E9B272EDDAD005B5A80 /* HomeVC.swift in Sources */,
 				6C975E9E272EDDAD005B5A80 /* MessageVC.swift in Sources */,
+				26775AC42778C99500E8FBE8 /* HomeVM.swift in Sources */,
 				6C975EBE272EDDB6005B5A80 /* ButtonCustom.swift in Sources */,
 				6C975E98272EDDAD005B5A80 /* PhotosVC.swift in Sources */,
 			);
@@ -947,15 +1051,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RNEWLY2A4;
 				INFOPLIST_FILE = Smirk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.product.com.Smirk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quadrant.tictactoe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -966,15 +1072,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4RNEWLY2A4;
 				INFOPLIST_FILE = Smirk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.product.com.Smirk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quadrant.tictactoe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

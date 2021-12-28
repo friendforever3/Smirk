@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 import Photos
-//import Kingfisher
+import Kingfisher
+import Alamofire
 
 
 //completion:@escaping(Bool)->()
@@ -140,16 +141,34 @@ class UtilityManager : NSObject{
          return arrayOfImages
      }
     
-    /*
-     func LoginUserDecodedDetail()->UserValidateLoginModel{
+    func userDataEncode(_ obj:UserModel){
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(obj) {
+                UserDefaults.standard.set(encoded, forKey: "UserModel")
+            }
+        }
+    
+     func userDecodedDetail()->UserModel{
            let decoder = JSONDecoder()
-           var loginData = UserValidateLoginModel()
-           if let questionData = UserDefaults.standard.data(forKey: "loginUserDetail"),
-               let data = try? decoder.decode(UserValidateLoginModel.self, from: questionData) {
+           var loginData = UserModel()
+           if let questionData = UserDefaults.standard.data(forKey: "UserModel"),
+               let data = try? decoder.decode(UserModel.self, from: questionData) {
                loginData = data
            }
            return loginData
     }
+    
+    func removeUserdefault(_ values :[String]){
+        for value in values{
+            UserDefaults.standard.removeObject(forKey: value)
+        }
+    }
+    
+    func getHeaderToken()->HTTPHeaders{
+        let header : HTTPHeaders = ["Content-Type":"application/json","Authorization":"Bearer \(userDecodedDetail().token)"]
+        return header
+    }
+    
     
      func setImage(image:UIImageView,urlString:String){
            let url = URL(string: urlString)
@@ -161,7 +180,9 @@ class UtilityManager : NSObject{
                       {
                           result in
                           switch result {
-                          case .success(let value): break
+                          case .success(let value):
+                              
+                              break
                             //  print("Task done for: \(value.source.url?.absoluteString ?? "")")
                           case .failure(let error): break
                              // print("Job failed: \(error.localizedDescription)")
@@ -170,6 +191,4 @@ class UtilityManager : NSObject{
            }
           }
        }
-     */
-
 }

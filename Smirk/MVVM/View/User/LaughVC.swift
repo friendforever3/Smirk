@@ -20,16 +20,26 @@ class LaughVC: UIViewController {
     }
     
     @IBAction func btnNextAction(_ sender: Any) {
+        if RegisterModel.shared.laugh_id == ""{
+            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kLaughWith, control: ["OK"], topController: self)
+        }else{
+            pushToGenderPerf()
+        }
+    }
+    
+    func pushToGenderPerf(){
         let vc = GenderPrefernceVC.getVC(.Main)
         self.push(vc)
     }
     
     @IBAction func btnRomanticAction(_ sender: Any) {
         selectedVw(selectedBtn: btnRomantic)
+        RegisterModel.shared.laugh_id = LaughWith.RomanticInterest.rawValue
     }
     
     @IBAction func btnJustFrndAction(_ sender: Any) {
         selectedVw(selectedBtn: btnJustFrnd)
+        RegisterModel.shared.laugh_id = LaughWith.justFriend.rawValue
     }
     
     func selectedVw(selectedBtn:ButtonCustom){

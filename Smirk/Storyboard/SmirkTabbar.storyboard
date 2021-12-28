@@ -17,6 +17,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="sliderBetwn"/>
                         <color key="tintColor" name="sliderBetwn"/>
+                        <color key="barTintColor" name="sliderBetwn"/>
                     </tabBar>
                     <connections>
                         <segue destination="HnT-y9-LyL" kind="relationship" relationship="viewControllers" id="cDn-qd-Ib2"/>

@@ -17,12 +17,13 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        getUserDetail()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        
     }
 
     @IBAction func btnLogoutAction(_ sender: Any) {
@@ -96,6 +97,31 @@ extension SettingsVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 52
+    }
+    
+}
+
+//MARK: API
+extension SettingsVC{
+    
+    func getUserDetail(){
+        UserVM.shared.getUserDetail { [weak self] (success,msg) in
+            if success{
+                self?.listAPI()
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
+        }
+    }
+    
+    func listAPI(){
+        UserVM.shared.retrieveList { [weak self] (success,msg) in
+            if success{
+                
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
+        }
     }
     
 }

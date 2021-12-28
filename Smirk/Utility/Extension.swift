@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
 
 
 extension NSObject {
@@ -200,4 +201,65 @@ extension NSLayoutConstraint {
         NSLayoutConstraint.activate([newConstraint])
         return newConstraint
     }
+}
+
+extension UIViewController {
+   func showIndicator(withTitle title: String, and Description:String) {
+      let Indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+      Indicator.label.text = title
+      Indicator.isUserInteractionEnabled = false
+      Indicator.detailsLabel.text = Description
+      Indicator.show(animated: true)
+   }
+   func hideIndicator() {
+      MBProgressHUD.hide(for: self.view, animated: true)
+   }
+}
+
+extension String {
+    func isEmptyOrWhitespace() -> Bool {
+        
+        // Check empty string
+        if self.isEmpty {
+            return true
+        }
+        // Trim and check empty string
+        return (self.trimmingCharacters(in: .whitespaces) == "")
+    }
+}
+
+extension Double {
+    func roundToDecimal(_ fractionDigits: Int) -> Double {
+        let multiplier = pow(10, Double(fractionDigits))
+        return Darwin.round(self * multiplier) / multiplier
+    }
+}
+
+
+extension UIApplication {
+
+    class func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+
+        if let nav = base as? UINavigationController {
+            return getTopViewController(base: nav.visibleViewController)
+
+        } else if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
+            return getTopViewController(base: selected)
+
+        } else if let presented = base?.presentedViewController {
+            return getTopViewController(base: presented)
+        }
+        return base
+    }
+}
+
+extension String {
+
+  func CGFloatValue() -> CGFloat? {
+    guard let doubleValue = Double(self) else {
+      return nil
+    }
+
+    return CGFloat(doubleValue)
+  }
 }

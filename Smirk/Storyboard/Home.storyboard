@@ -81,6 +81,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KV8-D2-haa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="btnDislikeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6u1-7n-m6Q"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="sliderBetwn"/>
@@ -112,6 +115,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKu-Yb-DPG">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="btnLikeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nyq-Pj-fNb"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="BlueColor"/>
@@ -183,6 +189,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="vwAction" destination="dPq-2Y-xcE" id="ZeW-xY-w0C"/>
                         <outlet property="vwCard" destination="5fw-uW-F3P" id="L7h-Si-rhE"/>
                     </connections>
                 </viewController>

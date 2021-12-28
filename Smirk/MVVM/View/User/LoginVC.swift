@@ -12,8 +12,10 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var imgFlag: UIImageView!
     @IBOutlet weak var tfCode: TextFieldCustom!
-
+    @IBOutlet weak var tfMobileNo: TextFieldCustom!
+    
     let picker = CountryPicker()
+    var countryCode : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +36,13 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func btnContinueAction(_ sender: Any) {
-        let vc = OTPVC.getVC(.Main)
-        self.push(vc)
+        if tfMobileNo.text?.isEmptyOrWhitespace() ?? false{
+            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kMsgMobile, control: ["OK"], topController: self)
+        }else{
+            login()
+        }
+        
+       // pushToHome()
     }
     
 
@@ -46,6 +53,35 @@ extension LoginVC : CountryPickerDelegate{
     
     func countryPhoneCodePicker(_ picker: CountryPicker, didSelectCountryWithName name: String, countryCode: String, phoneCode: String, flag: UIImage) {
         imgFlag.image = flag
+        self.countryCode = phoneCode
+    }
+    
+}
+
+
+//MARK: API
+extension LoginVC{
+    
+    func login(){
+        let mobileNo = (self.countryCode) + (tfMobileNo.text ?? "")
+        UserVM.shared.sendOtpApi(mobileNo: mobileNo) { [weak self] (success,msg) in
+            if success{
+                self?.pushToOtp()
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
+        }
+    }
+    
+    func pushToOtp(){
+         let vc = OTPVC.getVC(.Main)
+         vc.mobile = (self.countryCode) + (tfMobileNo.text ?? "")
+         self.push(vc)
+    }
+    
+    func pushToHome(){
+        let vc = SmirkTabbarVC.getVC(.SmirkTabbar)
+        self.push(vc)
     }
     
 }

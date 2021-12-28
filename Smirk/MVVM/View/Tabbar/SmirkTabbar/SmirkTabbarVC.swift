@@ -15,6 +15,13 @@ class SmirkTabbarVC: UITabBarController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
+        
+    }
+    
 
     /*
     // MARK: - Navigation

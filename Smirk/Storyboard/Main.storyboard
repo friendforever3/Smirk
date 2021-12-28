@@ -244,6 +244,7 @@ our Terms of Service and Privacy Policy</string>
                     <connections>
                         <outlet property="imgFlag" destination="TJZ-Il-piP" id="cSR-gz-4M4"/>
                         <outlet property="tfCode" destination="MfH-BX-N99" id="eyj-YB-UYp"/>
+                        <outlet property="tfMobileNo" destination="HOa-iM-S9q" id="hNK-Qt-qNZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -289,10 +290,10 @@ our Terms of Service and Privacy Policy</string>
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="56"/>
                                                                 <subviews>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MP-20-B7A" customClass="ViewCustom" customModule="Smirk" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="56"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="56"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jBL-mE-IHQ">
-                                                                                <rect key="frame" x="2" y="2" width="59" height="52"/>
+                                                                                <rect key="frame" x="2" y="2" width="79.5" height="52"/>
                                                                                 <color key="textColor" name="blackColor2F"/>
                                                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -318,10 +319,10 @@ our Terms of Service and Privacy Policy</string>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFY-I0-FAP" customClass="ViewCustom" customModule="Smirk" customModuleProvider="target">
-                                                                        <rect key="frame" x="80" y="0.0" width="63.5" height="56"/>
+                                                                        <rect key="frame" x="100.5" y="0.0" width="83" height="56"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oYS-4K-9uB">
-                                                                                <rect key="frame" x="2" y="2" width="59.5" height="52"/>
+                                                                                <rect key="frame" x="2" y="2" width="79" height="52"/>
                                                                                 <color key="textColor" name="blackColor2F"/>
                                                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -347,10 +348,10 @@ our Terms of Service and Privacy Policy</string>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7D-qi-Vyu" customClass="ViewCustom" customModule="Smirk" customModuleProvider="target">
-                                                                        <rect key="frame" x="160.5" y="0.0" width="63" height="56"/>
+                                                                        <rect key="frame" x="200.5" y="0.0" width="83.5" height="56"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gn-Lz-kfS">
-                                                                                <rect key="frame" x="2" y="2" width="59" height="52"/>
+                                                                                <rect key="frame" x="2" y="2" width="79.5" height="52"/>
                                                                                 <color key="textColor" name="blackColor2F"/>
                                                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -376,10 +377,10 @@ our Terms of Service and Privacy Policy</string>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHN-y8-144" customClass="ViewCustom" customModule="Smirk" customModuleProvider="target">
-                                                                        <rect key="frame" x="240.5" y="0.0" width="63.5" height="56"/>
+                                                                        <rect key="frame" x="301" y="0.0" width="83" height="56"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVF-T0-2fF">
-                                                                                <rect key="frame" x="2" y="2" width="59.5" height="52"/>
+                                                                                <rect key="frame" x="2" y="2" width="79" height="52"/>
                                                                                 <color key="textColor" name="blackColor2F"/>
                                                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -404,11 +405,11 @@ our Terms of Service and Privacy Policy</string>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxR-Se-K0T" customClass="ViewCustom" customModule="Smirk" customModuleProvider="target">
-                                                                        <rect key="frame" x="321" y="0.0" width="63" height="56"/>
+                                                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxR-Se-K0T" customClass="ViewCustom" customModule="Smirk" customModuleProvider="target">
+                                                                        <rect key="frame" x="384" y="0.0" width="4" height="56"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="txl-3A-zBK">
-                                                                                <rect key="frame" x="2" y="2" width="59" height="52"/>
+                                                                                <rect key="frame" x="2" y="2" width="0.0" height="52"/>
                                                                                 <color key="textColor" name="blackColor2F"/>
                                                                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -1466,6 +1467,7 @@ preferences</string>
                         <outlet property="btnFifty" destination="ymO-Js-ct8" id="7Jq-1e-MVe"/>
                         <outlet property="btnHundred" destination="OHC-g3-q8K" id="N8p-Be-d7B"/>
                         <outlet property="btnTen" destination="hVC-Oo-Zeb" id="Pxo-a9-4PB"/>
+                        <outlet property="rangeSlider" destination="i4H-8o-QU2" id="bjn-bh-Hcy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ow-1b-V4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2241,7 +2243,7 @@ preference</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3V-8c-qDU" customClass="ViewCustom" customModule="Smirk" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="72" width="382" height="48"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-m0-HFC" customClass="TextFieldCustom" customModule="Smirk" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-m0-HFC" customClass="TextFieldCustom" customModule="Smirk" customModuleProvider="target">
                                                                 <rect key="frame" x="27" y="0.0" width="350" height="48"/>
                                                                 <color key="textColor" name="blackColor2F"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -2586,7 +2588,10 @@ preference</string>
                         <outlet property="btnFemale" destination="eHM-tq-te2" id="Xp9-11-jvU"/>
                         <outlet property="btnMale" destination="oCr-Kq-YIM" id="j7h-os-y1J"/>
                         <outlet property="btnNonBinary" destination="G6o-WM-ppi" id="4P2-Sv-68a"/>
+                        <outlet property="tfAbout" destination="Jo3-rJ-BV0" id="96J-hK-765"/>
                         <outlet property="tfDOB" destination="JRr-B4-ABG" id="U5e-Pw-5xC"/>
+                        <outlet property="tfFullName" destination="dCh-m0-HFC" id="vra-QU-HJ9"/>
+                        <outlet property="tfPreferredNounce" destination="lIT-XD-QRh" id="Hca-r8-PVp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nn6-U2-Dgl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2688,7 +2693,7 @@ movie</string>
                                                                 <color key="separatorColor" name="black18"/>
                                                                 <inset key="separatorInset" minX="14" minY="0.0" maxX="14" maxY="0.0"/>
                                                                 <prototypes>
-                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="66" id="YYu-43-qpb">
+                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="66" id="YYu-43-qpb" customClass="ShowTblCell" customModule="Smirk" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="44.5" width="382" height="66"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YYu-43-qpb" id="Rj5-y8-Y6p">
@@ -2724,6 +2729,10 @@ movie</string>
                                                                                 <constraint firstAttribute="trailing" secondItem="kPj-b2-E0U" secondAttribute="trailing" constant="5" id="vw2-Xh-gAk"/>
                                                                             </constraints>
                                                                         </tableViewCellContentView>
+                                                                        <connections>
+                                                                            <outlet property="imgShow" destination="IbA-r5-vFv" id="jGx-50-L7N"/>
+                                                                            <outlet property="lblShowName" destination="kPj-b2-E0U" id="7Eg-O1-TJj"/>
+                                                                        </connections>
                                                                     </tableViewCell>
                                                                 </prototypes>
                                                                 <connections>
@@ -2854,6 +2863,7 @@ movie</string>
                     </view>
                     <connections>
                         <outlet property="tblVw" destination="Ma5-Yb-Bh1" id="awE-bq-riC"/>
+                        <outlet property="tfShow" destination="IiM-7n-B3p" id="O7g-xd-fui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7b-Hj-Ljf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3052,6 +3062,9 @@ location</string>
         <designable name="OHC-g3-q8K">
             <size key="intrinsicContentSize" width="30" height="35"/>
         </designable>
+        <designable name="P9H-iP-F7F">
+            <size key="intrinsicContentSize" width="101" height="122"/>
+        </designable>
         <designable name="XPj-R3-lB3">
             <size key="intrinsicContentSize" width="95" height="35"/>
         </designable>
@@ -3059,7 +3072,7 @@ location</string>
             <size key="intrinsicContentSize" width="31" height="35"/>
         </designable>
         <designable name="dCh-m0-HFC">
-            <size key="intrinsicContentSize" width="92" height="24"/>
+            <size key="intrinsicContentSize" width="86" height="24"/>
         </designable>
         <designable name="eHM-tq-te2">
             <size key="intrinsicContentSize" width="60" height="35"/>
