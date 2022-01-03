@@ -63,6 +63,7 @@ extension SettingsVC : UITableViewDelegate,UITableViewDataSource{
             
         case "Personal Info":
             let vc = ProfileInfoVC.getVC(.Setting)
+            vc.delegate = self
             self.push(vc)
             
             break
@@ -73,11 +74,13 @@ extension SettingsVC : UITableViewDelegate,UITableViewDataSource{
             break
         case "Profile Settings":
             let vc = ProfileSettingVC.getVC(.Setting)
+            vc.delegate = self
             self.push(vc)
             
             break
         case "Your Photos":
             let vc = PhotosVC.getVC(.Setting)
+            vc.delegate = self
             self.push(vc)
             
             break
@@ -99,6 +102,13 @@ extension SettingsVC : UITableViewDelegate,UITableViewDataSource{
         return 52
     }
     
+}
+
+//MARK: Did update protocol
+extension SettingsVC : ProfileUpdateDelagte{
+    func didProfileUpdate() {
+        self.getUserDetail()
+    }
 }
 
 //MARK: API

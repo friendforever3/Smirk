@@ -21,6 +21,8 @@ class ProfileInfoVC: UIViewController {
     var gender = ["Male","Female","Non Binary"]
     var selectedGender = "0"
     
+    var delegate : ProfileUpdateDelagte?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +32,8 @@ class ProfileInfoVC: UIViewController {
             pickrVw.delegate = self
             pickrVw.dataSource = self
         }
+        
+        tfGender.delegate = self
         tfGender.inputView = genderPickerView
         tfFavShow.inputView = showPickerView
         showDatePicker()
@@ -82,6 +86,26 @@ class ProfileInfoVC: UIViewController {
     }
     
 
+}
+
+//MARK: TextField Delegate
+extension ProfileInfoVC : UITextFieldDelegate,UITextViewDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == tfGender{
+            if gender.count != 0{
+                tfGender.text = gender[0]
+                if tfGender.text == "Male"{
+                    selectedGender = "0"
+                }else if tfGender.text == "Female"{
+                    selectedGender = "1"
+                }else{
+                    selectedGender = "2"
+                }
+            }
+            genderPickerView.reloadInputViews()
+        }
+    }
 }
 
 //MARK: PickerView Delegate and datasource
@@ -170,7 +194,14 @@ extension ProfileInfoVC{
         
         UserVM.shared.updateProfileInfo(name: tfName.text ?? "", dob: tfDOB.text ?? "", gender: selectedGender, about: tfAbout.text ?? "", show: UserVM.shared.shows.map({$0.id})) { [weak self] (success,msg) in
             
-            
+            if success{
+                self?.delegate?.didProfileUpdate()
+                UtilityManager.shared.displayAlertWithCompletion(title: "", message: msg, control: ["OK"], topController: self ?? UIViewController()) { (_) in
+                    self?.popVc()
+                }
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
         }
         
     }

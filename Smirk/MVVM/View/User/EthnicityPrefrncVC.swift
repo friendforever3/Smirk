@@ -18,6 +18,8 @@ class EthnicityPrefrncVC: UIViewController {
     
     var selectedIndexPath = [IndexPath]()
     
+    var isComingFromScreen : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +30,21 @@ class EthnicityPrefrncVC: UIViewController {
         bubbleLayout.delegate = self
         clcVw.setCollectionViewLayout(bubbleLayout, animated: false)
         
-        for _ in 0...UserVM.shared.getPrefEthnicListArrayCount(){
-            let index = IndexPath(row: -1, section: 0)
-            selectedIndexPath.append(index)
+        
+        if isComingFromScreen == ""{
+            for i in 0...UserVM.shared.getPrefEthnicListArrayCount(){
+                
+                let index = IndexPath(row: i, section: 0)
+                selectedIndexPath.append(index)
+            }
+        }else{
+            for _ in 0...UserVM.shared.getPrefEthnicListArrayCount(){
+                let index = IndexPath(row: -1, section: 0)
+                selectedIndexPath.append(index)
+            }
         }
+        
+      
         
     }
     

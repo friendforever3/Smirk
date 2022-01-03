@@ -8,6 +8,13 @@
 import UIKit
 import RangeSeekSlider
 
+struct ChoiceModel{
+    
+    var id : String?
+    var name : String?
+    
+}
+
 class ProfileSettingVC: UIViewController {
 
     @IBOutlet weak var tfPreEthenicity: UITextView!
@@ -21,10 +28,14 @@ class ProfileSettingVC: UIViewController {
     let maxDistancePickerView = UIPickerView()
     let prefEthenicityPickerView = UIPickerView()
     
-    var laughtWithArray = ["Just Friends","Romantic Interest"]
-    var interestedInArray = ["Male","Female","Non Binary"]
+    var laughtWithArray = [["name":"Just Friends","id":"1"],["name":"Romantic Interest","id":"2"]]
+    var interestedInArray = [["name":"Male","id":"1"],["name":"Female","id":"2"],["name":"Non Binary","id":"3"]]
     var maxDistArray = ["10","50","100","Any"]
     
+    var laughId : String = ""
+    var interestedID : String = ""
+    var prefEthncityId = [Int]()
+    var delegate : ProfileUpdateDelagte?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +44,16 @@ class ProfileSettingVC: UIViewController {
         [laughWithPickerView,InterestedInPickerView,maxDistancePickerView].forEach { (pickerVw) in
             pickerVw.delegate = self
             pickerVw.dataSource = self
+        }
+        
+        [tfName,tfDOB,tfMaxDistance,tfPreEthenicity].forEach { (txtFld) in
+            if let txt = txtFld as? UITextField{
+                txt.delegate = self
+            }
+            
+            if let txtView = txtFld as? UITextView{
+                txtView.delegate = self
+            }
         }
         
         tfName.inputView = laughWithPickerView
@@ -50,37 +71,39 @@ class ProfileSettingVC: UIViewController {
     
     func setUI(){
         
-        if UserVM.shared.objUserDetailModel.laugh_id == "1"{
+        if UserVM.shared.getLaughId() == "1"{
             tfName.text = "Just Friend"
+            laughId = "1"
         }else{
             tfName.text = "Romantic Interest"
+            laughId = "2"
         }
         
-        if UserVM.shared.objUserDetailModel.matching_id == "1"{
+        if UserVM.shared.getInterestedId() == "1"{
             tfDOB.text = "Male"
-        }else if UserVM.shared.objUserDetailModel.matching_id == "1"{
+            interestedID = "1"
+        }else if UserVM.shared.getInterestedId() == "2"{
             tfDOB.text = "Female"
+            interestedID = "2"
         }else{
             tfDOB.text = "Non Binary"
+            interestedID = "3"
         }
         
-        //tfName.text = UserVM.shared.objUserDetailModel.full_name
-        //tfDOB.text = UtilityManager.shared.getDate(dateString: UserVM.shared.objUserDetailModel.date_of_birth, inputDateformat: "dd/MM/yyyy", outputDateFormate: "MM/dd/yyyy")
+        rangeSlidr.selectedMinValue = UserVM.shared.getAgeRange().from.CGFloatValue() ?? 0.0
         
+        rangeSlidr.selectedMaxValue = UserVM.shared.getAgeRange().To.CGFloatValue() ?? 0.0
         
-        rangeSlidr.selectedMinValue = UserVM.shared.objUserDetailModel.age_preference_from.CGFloatValue() ?? 0.0
-        
-        rangeSlidr.selectedMaxValue = UserVM.shared.objUserDetailModel.age_preference_to.CGFloatValue() ?? 0.0
-        
-        tfMaxDistance.text = UserVM.shared.objUserDetailModel.max_distance
-        
-        for (index,value) in UserVM.shared.objUserDetailModel.user_preferences.enumerated(){
+        tfMaxDistance.text = UserVM.shared.getMaxDistance()
+        prefEthncityId.removeAll()
+        for (index,value) in UserVM.shared.getPrefEthncity().enumerated(){
             
             if index == 0{
                 tfPreEthenicity.text = value.title
             }else{
                 tfPreEthenicity.text += ", " + value.title
             }
+            prefEthncityId.append(value.id)
         }
         
         
@@ -89,6 +112,43 @@ class ProfileSettingVC: UIViewController {
     
     @IBAction func btnBackAction(_ sender: Any) {
         self.popVc()
+    }
+    
+    @IBAction func btnSaveAction(_ sender: Any) {
+        updateProfileSetting()
+    }
+    
+}
+
+//MARK: TextField Delegate
+extension ProfileSettingVC : UITextFieldDelegate,UITextViewDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == tfName{
+            if laughtWithArray.count != 0{
+                tfName.text = laughtWithArray[0]["name"]
+                laughId = laughtWithArray[0]["id"] ?? ""
+            }
+        }else if textField == tfDOB{
+            if interestedInArray.count != 0{
+                tfDOB.text = interestedInArray[0]["name"]
+                interestedID = interestedInArray[0]["id"] ?? ""
+            }
+        }else if textField == tfMaxDistance{
+            if maxDistArray.count != 0{
+                tfMaxDistance.text = maxDistArray[0]
+            }
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView == tfPreEthenicity{
+            if UserVM.shared.preferEthicArray.count != 0{
+                self.view.endEditing(true)
+                let vc = EthnicityPrefrncVC.getVC(.Main)
+                self.push(vc)
+            }
+        }
     }
     
 }
@@ -111,9 +171,9 @@ extension ProfileSettingVC:UIPickerViewDelegate, UIPickerViewDataSource{
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == laughWithPickerView{
-          return laughtWithArray[row] // dropdown item
+          return laughtWithArray[row]["name"] // dropdown item
         }else if pickerView == InterestedInPickerView{
-            return interestedInArray[row]
+            return interestedInArray[row]["name"]
         }else if pickerView == maxDistancePickerView{
             return maxDistArray[row]
         }
@@ -122,15 +182,41 @@ extension ProfileSettingVC:UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView == laughWithPickerView{
-            tfName.text = laughtWithArray[row]
+            tfName.text = laughtWithArray[row]["name"]
+            laughId = laughtWithArray[row]["id"] ?? ""
         }else if pickerView == InterestedInPickerView{
-            tfDOB.text = interestedInArray[row]
+            tfDOB.text = interestedInArray[row]["name"]
+            interestedID = interestedInArray[row]["id"] ?? ""
         }else if pickerView == maxDistancePickerView{
             tfMaxDistance.text = maxDistArray[row]
         }else{
             tfPreEthenicity.text += ", " + UserVM.shared.preferEthicArray[row].title
         }
         
+    }
+    
+}
+
+
+//MARK: API
+extension ProfileSettingVC{
+    
+    func updateProfileSetting(){
+
+        
+        UserVM.shared.updateProfileSetting(laugh_id: laughId, interestedIn: interestedID, rangeFrom: "\(rangeSlidr.selectedMinValue)", rangeTo: "\(rangeSlidr.selectedMaxValue)", maxDist: tfMaxDistance.text ?? "", preEthncity: prefEthncityId) { [weak self] (success,msg) in
+            
+            if success{
+                self?.delegate?.didProfileUpdate()
+                UtilityManager.shared.displayAlertWithCompletion(title: "", message: msg, control: ["OK"], topController: self ?? UIViewController()) { (_) in
+                    self?.popVc()
+                }
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
+            
+        }
+
     }
     
 }

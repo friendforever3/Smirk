@@ -131,6 +131,7 @@ class ProfileImageModel:Codable{
     var id : Int = 0
     var user_id : Int = 0
     var profile_pic : String = ""
+    var data : Data?
     
     func setData(dict:[String:Any]){
         self.id = dict["id"] as? Int ?? 0

@@ -81,7 +81,7 @@ func serverRequesArrayt(url:String,param:[String:Any]?,method:HTTPMethod,header:
     
 }
 
-func uploadDataToServerHandler(url:String,param:[String:Any]?,imgData:[Data]?,fileName:String,completion:@escaping ([String:Any]?)->()){
+func uploadDataToServerHandler(url:String,param:[String:Any]?,imgData:[Data]?,fileName:String,header:HTTPHeaders?,completion:@escaping ([String:Any]?)->()){
     
     print(url)
     print(param)
@@ -112,7 +112,7 @@ func uploadDataToServerHandler(url:String,param:[String:Any]?,imgData:[Data]?,fi
                 }
                 else{
                     
-                    multipartData.append("\(value)".data(using: .utf8)!, withName: key)
+                    multipartData.append("\(value)".data(using: .utf8) ?? Data(), withName: key)
                 }
             }
         }
@@ -125,7 +125,7 @@ func uploadDataToServerHandler(url:String,param:[String:Any]?,imgData:[Data]?,fi
         }
         
         
-    }, to: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, usingThreshold: UInt64.init(), method: .post, headers: nil).response { (response) in
+    }, to: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, usingThreshold: UInt64.init(), method: .post, headers: header).response { (response) in
         print("ghgg",response)
         //Indicator.shared.stop()
         UIApplication.getTopViewController()?.hideIndicator()

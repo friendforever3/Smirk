@@ -206,13 +206,18 @@ extension NSLayoutConstraint {
 extension UIViewController {
    func showIndicator(withTitle title: String, and Description:String) {
       let Indicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+       self.view.isUserInteractionEnabled = false
       Indicator.label.text = title
       Indicator.isUserInteractionEnabled = false
+       
       Indicator.detailsLabel.text = Description
       Indicator.show(animated: true)
+       
    }
    func hideIndicator() {
+       self.view.isUserInteractionEnabled = true
       MBProgressHUD.hide(for: self.view, animated: true)
+       
    }
 }
 
