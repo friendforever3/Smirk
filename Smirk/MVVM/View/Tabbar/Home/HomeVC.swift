@@ -169,7 +169,15 @@ extension HomeVC{
     func getCardList(){
         HomeVM.shared.getCardList { [weak self] (success,msg) in
             if success{
+                
+                if HomeVM.shared.getCardListCount() != 0{
+                    self?.vwAction.isHidden = false
+                }else{
+                    self?.vwAction.isHidden = true
+                }
+                
                 self?.vwCard.reloadData()
+                
             }else{
                 UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
             }
