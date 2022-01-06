@@ -20,6 +20,7 @@ struct APIConstant{
     static let kActionOnCard = "action-on-card"
     static let kUserDetail = "user-detail"
     static let kUpdateProfile = "update-profile"
+    static let kUpdateImage = "update-image"
 }
 
 struct AppConstant{

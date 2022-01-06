@@ -121,6 +121,7 @@ class UserVM: NSObject {
                 
                 if let data = response["data"] as? [String:Any]{
                     self?.objUserDetailModel.setData(dict: data)
+                    UtilityManager.shared.userDataEncode(self?.objUserDetailModel ?? UserModel())
                 }
                 completion(true,response["message"] as? String ?? "")
             }else{
@@ -163,9 +164,23 @@ class UserVM: NSObject {
     }
     
     
-    func uploadProfileImages(imgData:[Data],completion:@escaping completionHandler){
+    func uploadProfileImages(imgData:[Data],fileName:String,completion:@escaping completionHandler){
         
-        uploadDataToServerHandler(url: APIConstant.kSandvboxBaseUrl + APIConstant.kUpdateProfile, param: nil, imgData: imgData, fileName: "profile_pic", header: UtilityManager.shared.getHeaderToken()) { (response) in
+        uploadDataToServerHandler(url: APIConstant.kSandvboxBaseUrl + APIConstant.kUpdateProfile, param: nil, imgData: imgData, fileName: fileName, header: UtilityManager.shared.getHeaderToken()) { (response) in
+            
+           // print("respinse register:-",response)
+            if response?["code"] as? Int == 200{
+                completion(true,response?["message"] as? String ?? "")
+            }else{
+                completion(false,response?["message"] as? String ?? "")
+            }
+        }
+        
+    }
+    
+    func uploadProfileImage(imgData:Data,fileName:String,completion:@escaping completionHandler){
+        
+        uploadDataToServerHandlerSingle(url: APIConstant.kSandvboxBaseUrl + APIConstant.kUpdateImage, param: nil, imgData: imgData, fileName: fileName, header: UtilityManager.shared.getHeaderToken()) { (response) in
             
            // print("respinse register:-",response)
             if response?["code"] as? Int == 200{
@@ -199,6 +214,10 @@ class UserVM: NSObject {
         return (title:preferEthicArray[indexPath.row].title,id:"\(preferEthicArray[indexPath.row].id)")
     }
     
+    func getPrefEthnicListArray()->[EthenicModel]{
+        return preferEthicArray
+    }
+    
     //MARK: shows Data
     func getShowsListArrayCount()->Int{
         return shows.count
@@ -228,6 +247,14 @@ class UserVM: NSObject {
     
     func getPrefEthncity()->[EthenicModel]{
         return objUserDetailModel.user_preferences
+    }
+    
+    func appendPrefEthncity(_ insert:EthenicModel){
+        
+    }
+    
+    func removePrefEthncity(id:Int){
+        objUserDetailModel.user_preferences.removeAll(where: {$0.id == id})
     }
     
     func getProfileImageCount()->Int{

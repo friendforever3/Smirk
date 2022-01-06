@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SettingsVC: UIViewController {
 
     @IBOutlet weak var tblVw: UITableView!
+    @IBOutlet weak var imgProfile: UIImageView!
     
     let textArray = ["Personal Info","Matches","Profile Settings","Your Photos","Terms & Conditions","Privacy Policy","Help"]
     
@@ -25,7 +27,20 @@ class SettingsVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         
     }
-
+    
+    @IBAction func btnEditProfileImgAction(_ sender: Any) {
+        ImagePickerManager().pickImage(self){ image in
+               //here is the image
+            //self.imgData = image.jpegData(compressionQuality: 0.75)
+            self.imgProfile.image = image
+            print("imhgafe:-",image.jpegData(compressionQuality: 0.2))
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                self.updateProfileImg(imgData: image.jpegData(compressionQuality: 0.2) ?? Data())
+            }
+        }
+        //https://smirkapp.us/storage/profile_photos/fE4HMOqWiUgQHG55BSz6aDePck8ErAbQrsInPUdB.jpg
+    }
+    
     @IBAction func btnLogoutAction(_ sender: Any) {
         logout()
     }
@@ -118,6 +133,8 @@ extension SettingsVC{
         UserVM.shared.getUserDetail { [weak self] (success,msg) in
             if success{
                 self?.listAPI()
+                print("\("https://smirkapp.us/storage/" + UtilityManager.shared.userDecodedDetail().profile_photo)")
+                UtilityManager.shared.setImage(image: self?.imgProfile ?? UIImageView(), urlString: "https://smirkapp.us/storage/" + UtilityManager.shared.userDecodedDetail().profile_photo)
             }else{
                 UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
             }
@@ -132,6 +149,18 @@ extension SettingsVC{
                 UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
             }
         }
+    }
+    
+    func updateProfileImg(imgData:Data){
+        UserVM.shared.uploadProfileImage(imgData: imgData, fileName: "profile_photo") { [weak self] (success,msg) in
+            if success{
+                self?.getUserDetail()
+            }else{
+                UtilityManager.shared.displayAlert(title: AppConstant.KError, message: msg, control: ["OK"], topController: self ?? UIViewController())
+            }
+        }
+        
+        
     }
     
 }

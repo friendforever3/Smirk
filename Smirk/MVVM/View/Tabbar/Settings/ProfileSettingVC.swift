@@ -9,10 +9,8 @@ import UIKit
 import RangeSeekSlider
 
 struct ChoiceModel{
-    
     var id : String?
     var name : String?
-    
 }
 
 class ProfileSettingVC: UIViewController {
@@ -60,13 +58,14 @@ class ProfileSettingVC: UIViewController {
         tfDOB.inputView = InterestedInPickerView
         tfMaxDistance.inputView = maxDistancePickerView
         //tfPreEthenicity.inputView = prefEthenicityPickerView
+        setUI()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        setUI()
+        
     }
     
     func setUI(){
@@ -97,7 +96,6 @@ class ProfileSettingVC: UIViewController {
         tfMaxDistance.text = UserVM.shared.getMaxDistance()
         prefEthncityId.removeAll()
         for (index,value) in UserVM.shared.getPrefEthncity().enumerated(){
-            
             if index == 0{
                 tfPreEthenicity.text = value.title
             }else{
@@ -105,8 +103,6 @@ class ProfileSettingVC: UIViewController {
             }
             prefEthncityId.append(value.id)
         }
-        
-        
         
     }
     
@@ -146,11 +142,35 @@ extension ProfileSettingVC : UITextFieldDelegate,UITextViewDelegate{
             if UserVM.shared.preferEthicArray.count != 0{
                 self.view.endEditing(true)
                 let vc = EthnicityPrefrncVC.getVC(.Main)
+                vc.isComingFromScreen = "editing"
+                vc.prefDelegate = self
                 self.push(vc)
             }
         }
     }
     
+}
+
+//MARK: Protcol Update Preference ethncity
+extension ProfileSettingVC : didPreferenceUpdateDelegate{
+    
+    func didUpdatePrefEthncity() {
+        prefEthncityId.removeAll()
+        tfPreEthenicity.text = ""
+        for id in RegisterModel.shared.preferences{
+            for (index,value) in UserVM.shared.getPrefEthnicListArray().enumerated(){
+                if id == value.id{
+                    if index == 0{
+                        tfPreEthenicity.text = value.title
+                    }else{
+                        tfPreEthenicity.text += ", " + value.title
+                    }
+                    prefEthncityId.append(value.id)
+                    break
+                }
+            }
+        }
+    }
 }
 
 //MARK: PickerView Delegate and datasource

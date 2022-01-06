@@ -20,6 +20,8 @@ class EthnicityPrefrncVC: UIViewController {
     
     var isComingFromScreen : String = ""
     
+    var prefDelegate : didPreferenceUpdateDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,12 +32,27 @@ class EthnicityPrefrncVC: UIViewController {
         bubbleLayout.delegate = self
         clcVw.setCollectionViewLayout(bubbleLayout, animated: false)
         
-        
-        if isComingFromScreen == ""{
-            for i in 0...UserVM.shared.getPrefEthnicListArrayCount(){
-                
-                let index = IndexPath(row: i, section: 0)
-                selectedIndexPath.append(index)
+        RegisterModel.shared.preferences.removeAll()
+        if isComingFromScreen == "editing"{
+            var isSelected : Bool = false
+            for (index,value) in UserVM.shared.getPrefEthnicListArray().enumerated(){
+                for (_,value1) in UserVM.shared.getPrefEthncity().enumerated(){
+                    if value.title == value1.title && value.id == value1.id{
+                        isSelected = true
+                        break
+                    }else{
+                        isSelected = false
+                    }
+                }
+                if isSelected{
+                    let index1 = IndexPath(row: index, section: 0)
+                    selectedIndexPath.append(index1)
+                    let id = Int(UserVM.shared.getPrefEthnicListCell(indexPath: index1).id) ?? 0
+                    RegisterModel.shared.preferences.append(id)
+                }else{
+                    let index = IndexPath(row: -1, section: 0)
+                    selectedIndexPath.append(index)
+                }
             }
         }else{
             for _ in 0...UserVM.shared.getPrefEthnicListArrayCount(){
@@ -50,10 +67,15 @@ class EthnicityPrefrncVC: UIViewController {
     
     
     @IBAction func btnNextAction(_ sender: Any) {
-        if RegisterModel.shared.preferences.count == 0{
-            UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kEthnicityPerf, control: ["OK"], topController: self)
+        if isComingFromScreen == "editing"{
+            prefDelegate?.didUpdatePrefEthncity()
+            self.popVc()
         }else{
-            pushToSetupProfile()
+            if RegisterModel.shared.preferences.count == 0{
+                UtilityManager.shared.displayAlert(title: AppConstant.KOops, message: AppConstant.kEthnicityPerf, control: ["OK"], topController: self)
+            }else{
+                pushToSetupProfile()
+            }
         }
     }
     
@@ -99,6 +121,8 @@ extension EthnicityPrefrncVC : UICollectionViewDelegate,UICollectionViewDataSour
         //cell.btnEthenic.setTitle(textArray[indexPath.item], for: .normal)
         cell.btnEthenic.setTitle(UserVM.shared.getPrefEthnicListCell(indexPath: indexPath).title, for: .normal)
         if selectedIndexPath[indexPath.row] == indexPath{
+            print("selectedIndexPath count:-",selectedIndexPath.count)
+            
             cell.btnEthenic.backgroundColor = .white
             cell.btnEthenic.setTitleColor(UIColor(named: "blackColor"), for: .normal)
             cell.vwTick.isHidden = false

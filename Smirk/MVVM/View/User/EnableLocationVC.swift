@@ -17,6 +17,7 @@ class EnableLocationVC: UIViewController {
     
     @IBAction func btnEnableAction(_ sender: Any) {
         LocationManager.shared.initialiseLoc()
+        registerUser()
     }
     
     @IBAction func btnSkipAction(_ sender: Any) {

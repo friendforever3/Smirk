@@ -156,6 +156,82 @@ func uploadDataToServerHandler(url:String,param:[String:Any]?,imgData:[Data]?,fi
     
 }
 
+func uploadDataToServerHandlerSingle(url:String,param:[String:Any]?,imgData:Data?,fileName:String,header:HTTPHeaders?,completion:@escaping ([String:Any]?)->()){
+    
+    print(url)
+    print(param)
+    //Indicator.shared.start("")
+    UIApplication.getTopViewController()?.showIndicator(withTitle: "", and: "")
+    AF.upload(multipartFormData: { (multipartData) in
+        
+        if let parm = param{
+            for (key,value) in parm{
+                
+                if  (value as AnyObject).isKind(of: NSArray.self)
+                {
+                    print(value)
+                    let arrayObj = value as? [Int] ?? []
+                    //let data2 = NSData(bytes: &arrayObj, length: arrayObj.count)
+                    let count : Int  = arrayObj.count
+                    for i in 0  ..< count
+                    {
+                        let value = arrayObj[i]
+                        let encoder = JSONEncoder()
+                        if let jsonData = try? encoder.encode(value) {
+                            
+                            let keyObj = key + "[\(i)]"
+                            print("key value:-",keyObj,value)
+                            multipartData.append(jsonData, withName: keyObj)
+                        }
+                    }
+                }
+                else{
+                    
+                    multipartData.append("\(value)".data(using: .utf8) ?? Data(), withName: key)
+                }
+            }
+        }
+        
+        if let imageData = imgData{
+            print("imgcount:-",imageData.count)
+            
+                multipartData.append(imageData, withName: "\(fileName)", fileName: "\(UUID().uuidString).png", mimeType: "\(UUID().uuidString)/png")
+           
+        }
+        
+        
+    }, to: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, usingThreshold: UInt64.init(), method: .post, headers: header).response { (response) in
+        print("ghgg",response)
+        //Indicator.shared.stop()
+        UIApplication.getTopViewController()?.hideIndicator()
+        if let data = response.data, let str = String(data: data, encoding: .utf8){
+            print("server error:-",str)
+        }
+        
+        switch (response.result){
+        case .success(_):
+            if let responseData = response.value as? Data{
+                do {
+                    let data = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String:Any]
+                    completion(data)
+                }catch{
+                    completion([:])
+                }
+            }
+            
+            break
+        case .failure(let error):
+            print("errr",error.localizedDescription)
+            completion([:])
+            break
+        }
+        
+    }
+    
+    
+}
+
+
 extension Encodable {
     func toJSONData() -> Data? { try? JSONEncoder().encode(self) }
 }

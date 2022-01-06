@@ -134,7 +134,7 @@ extension PhotosVC{
     
     func uploadPics(){
         
-        UserVM.shared.uploadProfileImages(imgData: UserVM.shared.getProfileImagesData()) { [weak self] (success,msg) in
+        UserVM.shared.uploadProfileImages(imgData: UserVM.shared.getProfileImagesData(), fileName: "profile_pic") { [weak self] (success,msg) in
             if success{
                 self?.delegate?.didProfileUpdate()
                 self?.popVc()

@@ -18,3 +18,7 @@ protocol ControllerDeleagte{
 protocol ProfileUpdateDelagte{
     func didProfileUpdate()
 }
+
+protocol didPreferenceUpdateDelegate{
+    func didUpdatePrefEthncity()
+}
